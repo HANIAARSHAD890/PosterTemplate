@@ -118,21 +118,22 @@
         /* New Two Column Layout */
         .main-content {
             display: grid;
-            grid-template-columns: 1.6fr 1fr;
+            grid-template-columns: 1fr 2.8fr ;
             gap: 35px;
 
     align-items: start; /* Add this - prevents stretching */
         }
         .left-column {
-            display: flex;
+           display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
         }
         
         .right-column {
-            display: flex;
+             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
+           
         }
         
         .tech-break {
@@ -222,7 +223,7 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         
         .step {
@@ -278,7 +279,43 @@
             color: #4f5358;
             font-weight: bold;
         }
-        
+
+/* INPUT/OUTPUT - Simple Icon Style */
+
+
+           .io-content {
+            font-size: 0.85em;
+            text-align: center;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+.input-icon,
+.output-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s;
+}
+
+.input-icon:hover,
+.output-icon:hover {
+    transform: scale(1.1);
+}
+
+.input-icon-img,
+.output-icon-img {
+    font-size: 2em;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.input-label,
+.output-label {
+    font-size: 0.75em;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: center;
+}
         .tech-stack-section {
             margin-top: 5px;
             text-align: center;
@@ -298,7 +335,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         
@@ -315,8 +352,8 @@
         }
         
         .tech-icon {
-            width: 50px;
-            height: 50px;
+            width: 35px;
+            height: 35px;
             background: white;
             border-radius: 10px;
             display: flex;
@@ -335,7 +372,7 @@
         .partners-section {
             margin-top: 7px;
             background: linear-gradient(135deg, #ffeaf4 0%, #e8d5ff 100%);
-            padding: 25px;
+            padding: 15px;
             border-radius: 15px;
         }
         
@@ -354,7 +391,7 @@
         
         .partner-item {
             background: white;
-            padding: 15px;
+            padding: 7px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             font-weight: 600;
@@ -367,7 +404,7 @@
             text-align: center;
             margin-top: 10px;
             padding-top: 0px;
-            color: #718096;
+            color: #5b5757;
             font-size: 0.95em;
         }
         
@@ -463,7 +500,7 @@
         </div>
          <div style="flex: 1; text-align: center;">
         <h1>AGENTIC WORKFLOWS</h1>
-        <p>Projects Unification with MCP Integration</p>
+        <p>Intelligent Agents Working Together</p>
         </div>
          <div class="course-info">
                 <h3>Course: SE-341 Software Project Mangement </h3>
@@ -477,202 +514,9 @@
         </div>
         
         <div class="main-content">
-        <div class="left-column">
-            
-        <div class="workflows-container">
-         <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 20px; border-radius: 15px; margin-bottom: 10px; border-left: 5px solid #667eea;">
-    <h2 style="text-align: center; color: #667eea; font-size: 2.2em; margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">⚙️Workflows</h2>
-</div>
-            <!-- Workflow 1: Business -->
-            <div class="workflow workflow-1">
-                <div class="workflow-header">
-                    <div class="workflow-name">RESEARCH BUSINESS PROPOSAL</div>
-                </div>
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-circle">
-                               <div class="step-number">1</div>
-                               <div class="step-icon">📋</div>
-                         
-                            <div class="step-title"> Summarizer</div>
-                        </div>
-                        <div class="step-description">Extract and summarize key insights from business proposals</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                                         <div class="step-number">2</div>
-                            <div class="step-icon">🗺️</div>
-               
-                           <div class="step-title">RoadMap</div>
-                        </div>
-                        <div class="step-description">Generate strategic project roadmap and milestones</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                              <div class="step-number">3</div>
-                             <div class="step-icon">📊</div>
-                          
-                            
-                            <div class="step-title">Feasibility</div>
-                        </div>
-                        <div class="step-description">Analyze market feasibility and demand forecasting</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">4</div>
-                              <div class="step-icon">📝</div>
-                            <div class="step-title">Proposal</div>
-                        </div>
-                        <div class="step-description">Create comprehensive business proposal documentation</div>
-                    </div>
-                     <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">5</div>
-                             <div class="step-icon">📤</div>
-                            <div class="step-title">Export PDF</div>
-                        </div>
-                        <div class="step-description">Export finalized proposal as PDF document</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Workflow 2: Market Intelligence -->
-            <div class="workflow workflow-2">
-                <div class="workflow-header">
-                    <div class="workflow-name">SMART SEARCH WORKFLOW</div>
-                </div>
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-circle">
-                            
-                            <div class="step-number">1</div>
-                            <div class="step-icon">🔍</div>
-                            <div class="step-title">Deep Search</div>
-                        </div>
-                        <div class="step-description">Input the  query and it will perform deep research analysis across Web</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                              
-                            <div class="step-number">2</div>
-                           <div class="step-icon">📋</div>
-                <div class="step-title">Summarizer</div>
-                        </div>
-                        <div class="step-description">Generate concise summary of research findings</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">3</div>
-                            <div class="step-icon">📤</div>
-                <div class="step-title">Export PDF</div>
-            
-                        </div>
-                        <div class="step-description">Export research summary as PDF repor</div>
-                    </div>
-                     <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">4</div>
-                          <div class="step-icon">💾</div>
-                <div class="step-title">Save</div>
-                        </div>
-                        <div class="step-description">PDF will be saved to the Document repository.</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Workflow 3: Proposal Generation -->
-            <div class="workflow workflow-3">
-                <div class="workflow-header">
-                    <div class="workflow-name">MARKET INTELLIGENCE WORKFLOW</div>
-                </div>
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-circle">
-                              <div class="step-number">1</div>
-                             <div class="step-icon">🌐</div>
-                <div class="step-title">Web Search</div>
-                        </div>
-                        <div class="step-description">Input a buisness relevant query and it will perform a web search over it .</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">2</div>
-                              <div class="step-icon">📋</div>
-                <div class="step-title">Summarizer</div>
-                    
-                        </div>
-                        <div class="step-description">Volvox tool will summarize the key points of the web search </div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                             <div class="step-number">3</div>
-                              <div class="step-icon">📊</div>
-                <div class="step-title">Feasibility</div>
-                           
-            
-                        </div>
-                        <div class="step-description">Evaluate business viability and success potential</div>
-                    </div>
-                    <div class="arrow">→</div>
-                    <div class="step">
-                        <div class="step-circle">
-                            <div class="step-number">4</div>
-                             <div class="step-icon">🗺️</div>
-                <div class="step-title">RoadMap</div>
-                        </div>
-                        <div class="step-description">Develop strategic implementation RoadMap </div>
-                    </div>
-                    <div class="arrow">→</div>
 
-                      <div class="step">
-                        <div class="step-circle">
-                                <div class="step-number">5</div>
-                             <div class="step-icon">📤</div>
-                <div class="step-title">Export & Save</div>
-                        </div>
-                        <div class="step-description">A PDF  will be generated and will be saved to repository</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     
-    <div class="presented-by">
-    <strong style="display: block; margin-bottom: 7px; font-size: 1.1em;">Presented by Section A:</strong>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
-            <strong>Amir Hashmi</strong><br>
-            <span style="font-size: 0.85em; color: #718096;">2023-CS-11</span>
-        </div>
-        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
-            <strong>Hania Arshad</strong><br>
-            <span style="font-size: 0.85em; color: #718096;">2023-CS-13</span>
-        </div>
-        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
-            <strong>Fajar Shahzad</strong><br>
-            <span style="font-size: 0.85em; color: #718096;">2023-CS-07</span>
-        </div>
-        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
-            <strong>Usman Ali Ashraf</strong><br>
-            <span style="font-size: 0.85em; color: #718096;">2023-CS-106</span>
-        </div>
-    </div>
-    <div style="margin-top: 10px; color: #718096; font-size: 0.9em;">
-        Computer Science Department | UET Lahore
-    </div>
-</div>
-</div> 
-        
-        
-        <div class="right-column">
+       
+        <div class="left-column">
 <!-- AGENTS SECTION - Replaces Goal & Scope -->
        <div class="agents-section">
             <h3>⚡ AGENTS USED IN WORKFLOWS</h3>
@@ -745,14 +589,14 @@
        
         <div class="tech-item">
             <div class="tech-icon">
-                <img src="images/supabase.png" alt="Supabase" style="width: 50px; height: 50px; object-fit: contain;">
+                <img src="images/supabase.png" alt="Supabase" style="width: 40px; height: 40px; object-fit: contain;">
             </div>
             <div class="tech-name">Supabase</div>
         </div>
 
     <div class="tech-item">
             <div class="tech-icon">
-                <img src="images/railway.png" alt="Railway" style="width: 50px; height: 50px; object-fit: contain;">
+                <img src="images/railway.png" alt="Railway" style="width: 38px; height: 38px; object-fit: contain;">
             </div>
             <div class="tech-name">Railway</div>
         </div>
@@ -784,17 +628,18 @@
             </div>
             <div class="tech-name">LangGraph</div>
         </div>     
-        <div class="tech-item">
-            <div class="tech-icon">
-                <img src="images/clickup.png" alt="ClickUp" style="width: 70px; height: 70px; object-fit: contain;">
-            </div>
-            <div class="tech-name">ClickUp</div>
-        </div>
+        
           <div class="tech-item">
             <div class="tech-icon">
                 <img src="images/github.png" alt="ClickUp" style="width: 50px; height: 50px; object-fit: contain;">
             </div>
             <div class="tech-name">Github</div>
+        </div>
+        <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/clickup.png" alt="ClickUp" style="width: 70px; height: 70px; object-fit: contain;">
+            </div>
+            <div class="tech-name">ClickUp</div>
         </div>
     </div>
       </div>
@@ -810,9 +655,252 @@
         
         </div>
   
-   
-    </div>
 
+        <div class="right-column">
+            
+        <div class="workflows-container">
+         <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 20px; border-radius: 15px; margin-bottom: 10px; border-left: 5px solid #667eea;">
+    <h2 style="text-align: center; color: #667eea; font-size: 2.2em; margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">⚙️Workflows</h2>
+</div>
+            <!-- Workflow 1: Business -->
+            <div class="workflow workflow-1">
+                <div class="workflow-header">
+                    <div class="workflow-name">RESEARCH BUSINESS PROPOSAL</div>
+                </div>
+                
+            
+                
+                <div class="steps-container">
+                      <!-- INPUT -->
+                    <div class="input-icon">
+    <div class="input-icon-img">📄</div>
+      <div class="io-content">
+                            Business<br>Proposal
+                        </div>
+</div>
+<div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                               <div class="step-number">1</div>
+                               <div class="step-icon">📋</div>
+                         
+                            <div class="step-title"> Summarizer</div>
+                        </div>
+                        <div class="step-description">Extract and summarize key insights from business proposals</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                                         <div class="step-number">2</div>
+                            <div class="step-icon">🗺️</div>
+               
+                           <div class="step-title">RoadMap</div>
+                        </div>
+                        <div class="step-description">Generate strategic project roadmap and milestones</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                              <div class="step-number">3</div>
+                             <div class="step-icon">📊</div>
+                          
+                            
+                            <div class="step-title">Feasibility</div>
+                        </div>
+                        <div class="step-description">Analyze market feasibility and demand forecasting</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                              <div class="step-icon">📝</div>
+                            <div class="step-title">Proposal</div>
+                        </div>
+                        <div class="step-description">Create comprehensive business proposal documentation</div>
+                    </div>
+                     <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">5</div>
+                             <div class="step-icon">📤</div>
+                            <div class="step-title">Export PDF</div>
+                        </div>
+                        <div class="step-description">Export finalized proposal as PDF document</div>
+                    </div>
+                    <div class="arrow">→</div>
+
+
+                    <div class="output-icon">
+    <div class="output-icon-img">💾</div>
+     <div class="io-content">
+                            PDF Saved
+                        </div>
+</div>
+                </div>
+            </div>
+            
+            <!-- Workflow 2: Market Intelligence -->
+            <div class="workflow workflow-2">
+                <div class="workflow-header">
+                    <div class="workflow-name">SMART SEARCH WORKFLOW</div>
+                </div>
+                
+            
+                
+                <div class="steps-container">
+                    <div class="input-icon">
+    <div class="input-icon-img">📚?</div>
+      <div class="io-content">
+                         Knowledge Query
+                        </div>
+</div>
+
+<div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            
+                            <div class="step-number">1</div>
+                            <div class="step-icon">🔍</div>
+                            <div class="step-title">Deep Search</div>
+                        </div>
+                        <div class="step-description">Input the  query and it will perform deep research analysis across Web</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                              
+                            <div class="step-number">2</div>
+                           <div class="step-icon">📋</div>
+                <div class="step-title">Summarizer</div>
+                        </div>
+                        <div class="step-description">Generate concise summary of research findings</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">📤</div>
+                <div class="step-title">Export PDF</div>
+            
+                        </div>
+                        <div class="step-description">Export research summary as PDF repor</div>
+                    </div>
+                     <div class="arrow">→</div>
+                  
+                    <div class="output-icon">
+    <div class="output-icon-img">💾</div>
+     <div class="io-content">
+                            PDF Saved
+                        </div>
+</div>
+                </div>
+            </div>
+            
+            <!-- Workflow 3: Proposal Generation -->
+            <div class="workflow workflow-3">
+                <div class="workflow-header">
+                    <div class="workflow-name">MARKET INTELLIGENCE WORKFLOW</div>
+                </div>
+                
+              
+                
+                <div class="steps-container">
+
+   <div class="input-icon">
+    <div class="input-icon-img">📈?</div>
+      <div class="io-content">
+                        
+  Market Trends Query
+                        </div>
+</div>
+  <div class="arrow">→</div>
+
+                    <div class="step">
+                        <div class="step-circle">
+                              <div class="step-number">1</div>
+                             <div class="step-icon">🌐</div>
+                <div class="step-title">Web Search</div>
+                        </div>
+                        <div class="step-description">Input a buisness relevant query and it will perform a web search over it .</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">2</div>
+                              <div class="step-icon">📋</div>
+                <div class="step-title">Summarizer</div>
+                    
+                        </div>
+                        <div class="step-description">Volvox tool will summarize the key points of the web search </div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                             <div class="step-number">3</div>
+                              <div class="step-icon">📊</div>
+                <div class="step-title">Feasibility</div>
+                           
+            
+                        </div>
+                        <div class="step-description">Evaluate business viability and success potential</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                             <div class="step-icon">🗺️</div>
+                <div class="step-title">RoadMap</div>
+                        </div>
+                        <div class="step-description">Develop strategic implementation RoadMap </div>
+                    </div>
+                    <div class="arrow">→</div>
+
+                      <div class="step">
+                        <div class="step-circle">
+                                <div class="step-number">5</div>
+                             <div class="step-icon">📤</div>
+                <div class="step-title">Export PDF</div>
+                        </div>
+                        <div class="step-description">A PDF  will be generated and will be saved to repository</div>
+                    </div>
+                      <div class="arrow">→</div>
+                    <div class="output-icon">
+    <div class="output-icon-img">💾</div>
+     <div class="io-content">
+                            PDF Saved
+                        </div>
+</div>
+                </div>
+            </div>
+        </div>
+     
+    <div class="presented-by">
+    <strong style="display: block; margin-bottom: 7px; font-size: 1.1em;">Presented by Section A:</strong>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto;">
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Amir Hashmi</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-11</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Hania Arshad</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-13</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Fajar Shahzad</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-07</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Usman Ali Ashraf</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-106</span>
+        </div>
+    </div>
+    <div style="margin-top: 10px; color: #718096; font-size: 0.9em;">
+        Computer Science Department | UET Lahore
+    </div>
+</div>
+</div> 
+        
+ 
     </div>
 </body>
 </html>
