@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resource Allocation - Agentic Workflow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+        
+        .poster {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .top-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .logo-section {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .logo-box {
+            width: 170px;
+            height: 170px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7em;
+            text-align: center;
+            padding: 1px;
+        }
+        
+        .course-info {
+            text-align: right;
+        }
+        
+        .course-info h3 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .course-info p {
+            color: #718096;
+            font-size: 0.95em;
+        }
+        
+     header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #667eea;
+}
+
+.header .logo-section {
+    display: flex;
+    gap: 0px;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 2em;
+    color: #2d3748;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 0.95em;
+    color: #718096;
+}
+
+.header .course-info {
+    text-align: right;
+}
+
+.header .course-info h3 {
+    color: #2d3748;
+    font-size: 1em;
+    margin-bottom: 3px;
+}
+
+.header .course-info p {
+    color: #718096;
+    font-size: 0.85em;
+}
+        
+        /* New Two Column Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 35px;
+
+    align-items: start; /* Add this - prevents stretching */
+        }
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .tech-break {
+    flex-basis: 100%;
+    height: 0;
+}
+/* Adjust workflow container */
+.workflows-container {
+    padding-top: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.workflow {
+    margin-top: 10px;
+    background: #f8f9fa;
+     padding: 0px 0px 24px 0px; /* Added padding: top right bottom left */
+    border-radius: 15px;
+}
+/* Increase font sizes */
+.workflow-name {
+    font-size: 1.2em; /* was 1.4em */
+}
+
+        
+        .goal-section {
+
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 0;
+            border-left: 5px solid #667eea;
+        }
+        
+        .goal-section h3 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .goal-section p {
+            color: #4a5568;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+   
+        
+        .workflow {
+            margin-bottom: 35px;
+        }
+        
+        .workflow-header {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top:20px;
+        }
+        
+        .workflow-name {
+            font-size: 1.4em;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .workflow-1 .workflow-name {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .workflow-2 .workflow-name {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .workflow-3 .workflow-name {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2d3748;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .step-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .step-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .step-number {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .step-title {
+            font-size: 0.8em;
+            line-height: 1.2;
+        }
+        .step-icon {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+        .step-description {
+               display: none; /* Remove the long descriptions */
+        }
+        
+        .workflow-1 .step-circle { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .workflow-2 .step-circle { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .workflow-3 .step-circle { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #2d3748; }
+        
+        .arrow {
+            font-size: 1.8em;
+            color: #4f5358;
+            font-weight: bold;
+        }
+        
+        .tech-stack-section {
+            margin-top: 5px;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            border-radius: 20px;
+        }
+        
+        .tech-stack-section h2 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-size: 1.8em;
+        }
+        
+        .tech-name {
+            font-size: 0.75em;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        .partners-section {
+            margin-top: 7px;
+            background: linear-gradient(135deg, #ffeaf4 0%, #e8d5ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .partners-section h2 {
+            color: #2d3748;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .partner-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #2d3748;
+            text-align: center;
+        }
+        
+        .presented-by {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 0px;
+            color: #718096;
+            font-size: 0.95em;
+        }
+        
+
+        /* for agent section */
+           
+        .agents-section {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 50px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .agents-section h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .agent-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .agent-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .agent-name {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .agent-project {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 0.9em;
+            background: #667eea15;
+            padding: 4px 12px;
+            border-radius: 15px;
+        }
+
+        /* Media query update */
+@media (max-width: 1400px) {
+    .main-content {
+        display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 35px;
+    margin-bottom: 20px; /* Change from 0px to 20px */
+    }
+    
+    .partners-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+     .course-info {
+                text-align: center;
+            }
+}
+      
+    </style>
+</head>
+<body>
+    <div class="poster">
+
+        
+        <div class="header">
+              <div class="logo-section">
+
+                <div class="logo-box" style="background: white; padding: 10px;">
+            <img src="images/uetlogo.png" 
+                 alt="UET Lahore" 
+                 style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+              <div class="logo-box" style="background: white; padding: 15px;">
+            <img src="images/depOfCS.png" 
+                 alt="Dep of CS" 
+                 style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="logo-box" style="background: white; padding: 0px;">
+            <img src="images/ideallabs_logo.jfif" 
+                 alt="Dep of CS" 
+                 style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+         <div style="flex: 1; text-align: center;">
+        <h1>AGENTIC WORKFLOWS</h1>
+        <p>Projects Unification with MCP Integration</p>
+        </div>
+         <div class="course-info">
+                <h3>Course: SE-341 Software Project Mangement </h3>
+                <p>Instructor: Dr.Syed Khaldoon Khurshid</p>
+            </div>
+            </div>
+       
+    
+            
+      
+        </div>
+        
+        <div class="main-content">
+        <div class="left-column">
+            
+        <div class="workflows-container">
+         <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 20px; border-radius: 15px; margin-bottom: 10px; border-left: 5px solid #667eea;">
+    <h2 style="text-align: center; color: #667eea; font-size: 2.2em; margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">⚙️Workflows</h2>
+</div>
+            <!-- Workflow 1: Business -->
+            <div class="workflow workflow-1">
+                <div class="workflow-header">
+                    <div class="workflow-name">RESEARCH BUSINESS PROPOSAL</div>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-circle">
+                               <div class="step-number">1</div>
+                               <div class="step-icon">📋</div>
+                         
+                            <div class="step-title"> Summarizer</div>
+                        </div>
+                        <div class="step-description">Extract and summarize key insights from business proposals</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                                         <div class="step-number">2</div>
+                            <div class="step-icon">🗺️</div>
+               
+                           <div class="step-title">RoadMap</div>
+                        </div>
+                        <div class="step-description">Generate strategic project roadmap and milestones</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                              <div class="step-number">3</div>
+                             <div class="step-icon">📊</div>
+                          
+                            
+                            <div class="step-title">Feasibility</div>
+                        </div>
+                        <div class="step-description">Analyze market feasibility and demand forecasting</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                              <div class="step-icon">📝</div>
+                            <div class="step-title">Proposal</div>
+                        </div>
+                        <div class="step-description">Create comprehensive business proposal documentation</div>
+                    </div>
+                     <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">5</div>
+                             <div class="step-icon">📤</div>
+                            <div class="step-title">Export PDF</div>
+                        </div>
+                        <div class="step-description">Export finalized proposal as PDF document</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Workflow 2: Market Intelligence -->
+            <div class="workflow workflow-2">
+                <div class="workflow-header">
+                    <div class="workflow-name">SMART SEARCH WORKFLOW</div>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-circle">
+                            
+                            <div class="step-number">1</div>
+                            <div class="step-icon">🔍</div>
+                            <div class="step-title">Deep Search</div>
+                        </div>
+                        <div class="step-description">Input the  query and it will perform deep research analysis across Web</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                              
+                            <div class="step-number">2</div>
+                           <div class="step-icon">📋</div>
+                <div class="step-title">Summarizer</div>
+                        </div>
+                        <div class="step-description">Generate concise summary of research findings</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">📤</div>
+                <div class="step-title">Export PDF</div>
+            
+                        </div>
+                        <div class="step-description">Export research summary as PDF repor</div>
+                    </div>
+                     <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                          <div class="step-icon">💾</div>
+                <div class="step-title">Save</div>
+                        </div>
+                        <div class="step-description">PDF will be saved to the Document repository.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Workflow 3: Proposal Generation -->
+            <div class="workflow workflow-3">
+                <div class="workflow-header">
+                    <div class="workflow-name">MARKET INTELLIGENCE WORKFLOW</div>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-circle">
+                              <div class="step-number">1</div>
+                             <div class="step-icon">🌐</div>
+                <div class="step-title">Web Search</div>
+                        </div>
+                        <div class="step-description">Input a buisness relevant query and it will perform a web search over it .</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">2</div>
+                              <div class="step-icon">📋</div>
+                <div class="step-title">Summarizer</div>
+                    
+                        </div>
+                        <div class="step-description">Volvox tool will summarize the key points of the web search </div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                             <div class="step-number">3</div>
+                              <div class="step-icon">📊</div>
+                <div class="step-title">Feasibility</div>
+                           
+            
+                        </div>
+                        <div class="step-description">Evaluate business viability and success potential</div>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="step">
+                        <div class="step-circle">
+                            <div class="step-number">4</div>
+                             <div class="step-icon">🗺️</div>
+                <div class="step-title">RoadMap</div>
+                        </div>
+                        <div class="step-description">Develop strategic implementation RoadMap </div>
+                    </div>
+                    <div class="arrow">→</div>
+
+                      <div class="step">
+                        <div class="step-circle">
+                                <div class="step-number">5</div>
+                             <div class="step-icon">📤</div>
+                <div class="step-title">Export & Save</div>
+                        </div>
+                        <div class="step-description">A PDF  will be generated and will be saved to repository</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    <div class="presented-by">
+    <strong style="display: block; margin-bottom: 7px; font-size: 1.1em;">Presented by Section A:</strong>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 1200px; margin: 0 auto;">
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Amir Hashmi</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-11</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Hania Arshad</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-13</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Fajar Shahzad</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-07</span>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); padding: 10px; border-radius: 8px; border-left: 3px solid #667eea;">
+            <strong>Usman Ali Ashraf</strong><br>
+            <span style="font-size: 0.85em; color: #718096;">2023-CS-106</span>
+        </div>
+    </div>
+    <div style="margin-top: 10px; color: #718096; font-size: 0.9em;">
+        Computer Science Department | UET Lahore
+    </div>
+</div>
+</div> 
+        
+        
+        <div class="right-column">
+<!-- AGENTS SECTION - Replaces Goal & Scope -->
+       <div class="agents-section">
+            <h3>⚡ AGENTS USED IN WORKFLOWS</h3>
+            <div class="agent-list">
+                <div class="agent-item">
+                    <span class="agent-name">📋 Summarizer</span>
+                    <span class="agent-project">VOLVOX</span>
+                </div>
+                
+                 <div class="agent-item">
+                    <span class="agent-name">📤 PDF Exporter</span>
+                    <span class="agent-project">VOLVOX</span>
+                </div>
+                  <div class="agent-item">
+                    <span class="agent-name">🔍Deep Search</span>
+                    <span class="agent-project">SMART RESEARCH</span>
+                </div>
+                 <div class="agent-item">
+                    <span class="agent-name">🌐Web search</span>
+                    <span class="agent-project">SMART RESEARCH</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-name">🗺️ Roadmap Generator</span>
+                    <span class="agent-project">INNOSCOPE</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-name">📊 Market Feasibility</span>
+                    <span class="agent-project">INNOSCOPE</span>
+                </div>
+                <div class="agent-item">
+                    <span class="agent-name">📝Proposal Generator</span>
+                    <span class="agent-project">KICKSTART</span>
+                </div>
+               
+              
+            </div>
+        </div>
+
+
+  <div class="tech-stack-section">
+            <h2>🛠️ TECH STACK</h2>
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <div class="tech-icon" style="color: #3776AB;">
+                        <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+                            <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+                        </svg>
+                    </div>
+                    <div class="tech-name">Python</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+                            <path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/>
+                        </svg>
+                    </div>
+                    <div class="tech-name">Next.js</div>
+                </div>
+          
+        <div class="tech-item">
+            <div class="tech-icon" style="color: #47A248;">
+                <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+                    <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/>
+                </svg>
+            </div>
+            <div class="tech-name">MongoDB</div>
+        </div>
+
+       
+        <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/supabase.png" alt="Supabase" style="width: 50px; height: 50px; object-fit: contain;">
+            </div>
+            <div class="tech-name">Supabase</div>
+        </div>
+
+    <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/railway.png" alt="Railway" style="width: 50px; height: 50px; object-fit: contain;">
+            </div>
+            <div class="tech-name">Railway</div>
+        </div>
+        <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/huuggingFace.png" alt="HuggingFace" style="width: 80px; height: 80px; object-fit: contain;">
+            </div>
+            <div class="tech-name">HuggingFace</div>
+        </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon" style="color: #000000;">
+                        <svg viewBox="0 0 24 24" width="50" height="50" fill="currentColor">
+                            <path d="M24 22.525H0l12-21.05 12 21.05z"/>
+                        </svg>
+                    </div>
+                    <div class="tech-name">Vercel</div>
+                </div>
+          
+        <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/postman.png" alt="Postman" style="width: 70px; height: 70px; object-fit: contain;">
+            </div>
+            <div class="tech-name">Postman</div>
+        </div>
+           <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/langgraph.png" alt="LangGraph" style="width: 50px; height: 50px; object-fit: contain;">
+            </div>
+            <div class="tech-name">LangGraph</div>
+        </div>     
+        <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/clickup.png" alt="ClickUp" style="width: 70px; height: 70px; object-fit: contain;">
+            </div>
+            <div class="tech-name">ClickUp</div>
+        </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+                <img src="images/github.png" alt="ClickUp" style="width: 50px; height: 50px; object-fit: contain;">
+            </div>
+            <div class="tech-name">Github</div>
+        </div>
+    </div>
+      </div>
+         <div class="partners-section">
+            <h2>🤝 PROJECT PARTNERS</h2>
+            <div class="partners-grid">
+                <div class="partner-item">1. Volvox</div>
+                <div class="partner-item">2. Smart Research Answering</div>
+                <div class="partner-item">3. InnoScope</div>
+                <div class="partner-item">4. KickStart</div>
+            </div>
+        </div>
+        
+        </div>
+  
+   
+    </div>
+
+    </div>
+</body>
+</html>

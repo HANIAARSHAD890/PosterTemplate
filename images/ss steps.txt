@@ -1,0 +1,4 @@
+1-press CTRL + SHIFT + I to open dev tools
+2-adjust the dev tools in the bottom bar of the chrome tab
+3-press CTRL +P
+4- select capture full screen shot(Make sure you maximum zoom how much you want )
